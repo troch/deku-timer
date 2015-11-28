@@ -1,6 +1,6 @@
 {
   "name": "deku-timer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A deku timer higher-order component",
   "main": "dist/commonjs/timer.js",
   "scripts": {
