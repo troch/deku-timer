@@ -11,6 +11,8 @@ This higher-order component takes care of when to call render on your component,
 
 Read about higher-order components here (applies to deku as well): [Mixins Are Dead. Long Live Composition](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.c8wftb16t).
 
+__Demo:__ http://requirebin.com/?gist=752d87b73f7d607ccbf9
+
 ### Applications
 
 - Countdowns (time remaining)
