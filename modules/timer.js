@@ -21,13 +21,13 @@ function timer(delay) {
                 stopped: false
             };
 
-            function setTimer(component, setState) {
+            function setTimer(component) {
                 const { id, state } = component;
                 const duration = delay - (registry[id].startTime - Date.now()) % delay;
                 registry[id].timer = setTimeout(() => {
                     tick++;
                     setState({ tick });
-                    if (!registry[id].stopped) setTimer(component, setState);
+                    if (!registry[id].stopped) setTimer(component);
                 }, delay);
             }
 
