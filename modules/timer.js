@@ -14,7 +14,7 @@ function timer(delay) {
 
         function afterMount(component, el, setState) {
             const { id, state } = component;
-            registy[id] = {
+            registry[id] = {
                 startTime: Date.now(),
                 stopped: false
             };
@@ -25,16 +25,16 @@ function timer(delay) {
         function setTimeout(component, setState) {
             const { id, state } = component;
             const duration = delay - (registry[id].startTime - Date.now()) % delay;
-            registy[id].timer = setTimeout(() => {
+            registry[id].timer = setTimeout(() => {
                 setState({ tick: state.tick + 1 });
-                if (!registy[id].stopped) setTimeout(component, setState);
+                if (!registry[id].stopped) setTimeout(component, setState);
             }, delay);
         }
 
         function stop(component) {
             const { id, state } = component;
-            registy[id].stopped = true;
-            clearTimeout(registy[id].timer);
+            registry[id].stopped = true;
+            clearTimeout(registry[id].timer);
         }
 
         function beforeUnmount(component) {

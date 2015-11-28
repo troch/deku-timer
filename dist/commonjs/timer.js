@@ -30,7 +30,7 @@ function timer(delay) {
             var id = component.id;
             var state = component.state;
 
-            registy[id] = {
+            registry[id] = {
                 startTime: Date.now(),
                 stopped: false
             };
@@ -43,9 +43,9 @@ function timer(delay) {
             var state = component.state;
 
             var duration = delay - (registry[id].startTime - Date.now()) % delay;
-            registy[id].timer = setTimeout(function () {
+            registry[id].timer = setTimeout(function () {
                 setState({ tick: state.tick + 1 });
-                if (!registy[id].stopped) setTimeout(component, setState);
+                if (!registry[id].stopped) setTimeout(component, setState);
             }, delay);
         }
 
@@ -53,8 +53,8 @@ function timer(delay) {
             var id = component.id;
             var state = component.state;
 
-            registy[id].stopped = true;
-            clearTimeout(registy[id].timer);
+            registry[id].stopped = true;
+            clearTimeout(registry[id].timer);
         }
 
         function beforeUnmount(component) {

@@ -55,7 +55,7 @@
             function afterMount(component, el, setState) {
                 var id = component.id;
                 var state = component.state;
-                registy[id] = {
+                registry[id] = {
                     startTime: Date.now(),
                     stopped: false
                 };
@@ -66,19 +66,19 @@
                 var id = component.id;
                 var state = component.state;
                 var duration = delay - (registry[id].startTime - Date.now()) % delay;
-                registy[id].timer = setTimeout(function () {
+                registry[id].timer = setTimeout(function () {
                     setState({
                         tick: state.tick + 1
                     });
-                    if (!registy[id].stopped) setTimeout(component, setState);
+                    if (!registry[id].stopped) setTimeout(component, setState);
                 }, delay);
             }
 
             function _stop(component) {
                 var id = component.id;
                 var state = component.state;
-                registy[id].stopped = true;
-                clearTimeout(registy[id].timer);
+                registry[id].stopped = true;
+                clearTimeout(registry[id].timer);
             }
 
             function beforeUnmount(component) {
