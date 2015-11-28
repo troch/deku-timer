@@ -32,9 +32,9 @@ npm install --save deku-timer
 
 Create a new component by wrapping your component with `timer` HOC. Alongside the properties you specify, the created component will receive a `tick` property, the specified `delay` value and a `stop` function.
 
-<blockquote><font color="red"><strong>Important notice with ES5</strong></font>
-babel 6 changed the way transpiled default exports work. See <a href="http://stackoverflow.com/questions/33505992/babel-6-changes-how-it-exports-default/33506169#33506169">Babel 6 changes how it exports default</a> on stack overflow.
-</blockquote>
+<font color="red"><strong>Important notice with ES5:</strong></font>
+
+> babel 6 changed the way transpiled default exports work. See [Babel 6 changes how it exports default](http://stackoverflow.com/questions/33505992/babel-6-changes-how-it-exports-default/33506169#33506169) on stack overflow.
 
 ```javascript
 // ES5
