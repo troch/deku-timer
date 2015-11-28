@@ -60,7 +60,7 @@
                     stopped: false
                 };
 
-                function setTimer(component, setState) {
+                function setTimer(component) {
                     var id = component.id;
                     var state = component.state;
                     var duration = delay - (registry[id].startTime - Date.now()) % delay;
@@ -69,7 +69,7 @@
                         setState({
                             tick: tick
                         });
-                        if (!registry[id].stopped) setTimer(component, setState);
+                        if (!registry[id].stopped) setTimer(component);
                     }, delay);
                 }
 

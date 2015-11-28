@@ -1,3 +1,13 @@
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/troch/deku-timer/compare/v1.0.2...v1.0.3) (2015-11-28)
+
+
+### Bug Fixes
+
+* fix typo ([aaa6f60](https://github.com/troch/deku-timer/commit/aaa6f60))
+
+
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/troch/deku-timer/compare/v1.0.1...v1.0.2) (2015-11-28)
 
