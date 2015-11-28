@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/deku-timer.svg)](https://badge.fury.io/js/deku-timer)
+[![Build Status](https://travis-ci.org/troch/deku-timer.svg?branch=master)](https://travis-ci.org/troch/deku-timer)
+
 # Deku timer component (higher-order)
 
 > A deku higher-order timer component
