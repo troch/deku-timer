@@ -28,37 +28,41 @@ function timer(delay) {
 
         function afterMount(component, el, setState) {
             var id = component.id;
-            var state = component.state;
+
+            var startTime = Date.now();
+            var tick = 0;
 
             registry[id] = {
-                startTime: Date.now(),
                 stopped: false
             };
 
-            setTimeout(component);
-        }
+            function setTimer(component, setState) {
+                var id = component.id;
+                var state = component.state;
 
-        function setTimeout(component, setState) {
-            var id = component.id;
-            var state = component.state;
+                var duration = delay - (registry[id].startTime - Date.now()) % delay;
+                registry[id].timer = setTimeout(function () {
+                    tick++;
+                    setState({ tick: tick });
+                    if (!registry[id].stopped) setTimer(component, setState);
+                }, delay);
+            }
 
-            var duration = delay - (registry[id].startTime - Date.now()) % delay;
-            registry[id].timer = setTimeout(function () {
-                setState({ tick: state.tick + 1 });
-                if (!registry[id].stopped) setTimeout(component, setState);
-            }, delay);
+            setTimer(component);
         }
 
         function _stop(component) {
             var id = component.id;
-            var state = component.state;
 
             registry[id].stopped = true;
             clearTimeout(registry[id].timer);
         }
 
         function beforeUnmount(component) {
+            var id = component.id;
+
             _stop(component);
+            registry[id] = undefined;
         }
 
         function render(component) {
